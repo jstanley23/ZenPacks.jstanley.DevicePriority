@@ -1,0 +1,30 @@
+name: ZenPacks.jstanley.DevicePriority
+zProperties:
+  zDevicePriorityBehavior:
+    type: string
+    default: Default
+    category: Device Priority
+    label: Behavior of device priority
+    description: What behavior the device priority have on event severity. Either raise/lower severity, use base severity or use default severity
+  zDevicePriorityChangeSkip:
+    type: string
+    default: Info
+    category: Device Priority
+    label: Severity level to skip
+    description: Device priority behavior will skip events of this severity and lower. Clears will never be adjusted.
+  zDevicePriorityEventTypes:
+    type: string
+    default: Ping Down
+    category: Device Priority
+    label: Event types to adjust
+    description: Device priority will adjust these types of events. Selecting Custom will enable zDevicePriorityCustomType
+  zDevicePriorityInclusionEvents:
+    type: lines
+    category: Device Priority
+    label: Custom rules for inclusion of specified events
+    description: A CSV of rules to apply device priority behavior to. Each rule should be formatted eventField=RegEx. Example - eventClass=/Status/WinService,eventKey=WindowsServices
+  zDevicePriorityExclusionEvents:
+    type: lines
+    category: Device Priority
+    label: Custom rules for exclusion of specified events
+    description: A CSV of rules to apply device priority behavior to. Each rule should be formatted eventField=RegEx. Example - eventClass=/Status/WinService,eventKey=WindowsServices
