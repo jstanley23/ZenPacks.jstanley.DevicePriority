@@ -80,10 +80,10 @@ class DevicePriorityPlugin(object):
             return
 
         devicePriority = device.getPriority()
-        if devicePriority == 3:
+        if not devicePriority or devicePriority == 3:
             return
 
-        maxSeverity = device.getZ('zDevicePriorityChangeSkip')
+        maxSeverity = device.getZ('zDevicePriorityChangeSkip', False)
         if not maxSeverity:
             return
 
@@ -91,11 +91,11 @@ class DevicePriorityPlugin(object):
         if not maxSevNum or maxSevNum == eventProxy.severity:
             return
 
-        behavior = device.getZ('zDevicePriorityBehavior')
-        eventTypes = device.getZ('zDevicePriorityEventTypes')
+        behavior = device.getZ('zDevicePriorityBehavior', False)
+        eventTypes = device.getZ('zDevicePriorityEventTypes', False)
         inclusions = device.getZ('zDevicePriorityInclusionEvents', [])
         exclusions = device.getZ('zDevicePriorityExclusionEvents', [])
-        currentSev = eventProxy.severity
+        currentSev = getattr(eventProxy, 'severity', 2)
 
         if not behavior or device.getZ('zDevicePriorityBehavior') == 'Ignore':
             return
