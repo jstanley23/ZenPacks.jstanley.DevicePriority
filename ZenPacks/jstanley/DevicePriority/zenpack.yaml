@@ -5,7 +5,7 @@ zProperties:
     default: Default
     category: Device Priority
     label: Behavior of device priority
-    description: What behavior the device priority have on event severity. Either raise/lower severity, use base severity or use default severity
+    description: What behavior the device priority have on event severity. Either raise/lower severity, use base severity or use default severity.
   zDevicePriorityChangeSkip:
     type: string
     default: Info
@@ -17,7 +17,7 @@ zProperties:
     default: Ping Down
     category: Device Priority
     label: Event types to adjust
-    description: Device priority will adjust these types of events. Selecting Custom will enable zDevicePriorityCustomType
+    description: Device priority will adjust these types of events. Selecting Custom will enable zDevicePriorityInclusionEvents.
   zDevicePriorityInclusionEvents:
     type: lines
     category: Device Priority
